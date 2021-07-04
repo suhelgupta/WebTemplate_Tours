@@ -1,0 +1,122 @@
+.popup{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba($color:$color-black, $alpha: 0.9);
+    z-index: 400;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &__contant{
+        width: 75%;
+
+        @include respond(tab-port){
+            width:90% ;
+            overflow-y: auto;
+        }
+        @include respond(phone){
+            width:90% ;
+            overflow-y: auto;
+
+        }
+
+        // height: 50rem; // testing porpose
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%,-50%);
+        @include absCenter;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color:$color-black, $alpha: 0.2);
+        border-radius: 3px;
+
+        display: table;
+        overflow: hidden;
+        @include respond(tab-port){
+            display: block;
+        }
+
+
+        transform: translate(-50%,-50%) scale(0);
+        transition: all .4s .2s;
+    }
+
+    // open state
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__contant{
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    &__left{
+        width: 33.33%;
+        display: table-cell;
+        @include respond(tab-port){
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__right{
+        width: 66.667%;
+        display: table-cell;
+        @include respond(tab-port){
+            display: block;
+            width: 100%;
+        }
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &__img{
+        display: block;
+        width: 100%;
+        @include respond(tab-port){
+            display: inline-block;
+            width: 50%;
+            
+        }
+    }
+
+    &__text{
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        // Colloum Layout
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-gray-light-1;
+
+        hyphens: auto;
+
+        @include respond(tab-port){
+            column-gap:2rem ;
+        }
+        @include respond(phone){
+            column-gap:.5rem ;
+        }
+    }
+
+    &__close{
+        position: absolute;
+        color: $color-gray-dark;
+        right: 2.5rem;
+        top: 2.5rem;
+        font-size: 3rem;
+        font-weight: 700;
+        text-decoration: none;
+        line-height: 1;
+
+        &:hover{
+            color: $color-primary;
+        }
+    }
+
+    
+}

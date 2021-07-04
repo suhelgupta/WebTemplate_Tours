@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GridsComponent } from './grids/grids.component';
+import { SignaturreComponent } from './signaturre/signaturre.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GridsComponent,
+    SignaturreComponent
   ],
   imports: [
     BrowserModule,
